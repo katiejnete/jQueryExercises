@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movies App!</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap/dist/css/bootstrap.css"
+    />
+    <style>
+      li {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form action="#" id="movie-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title">
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating">
+        <button>Submit</button>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      $('div').append('<ul></ul>');
+      $('#movie-form').on('submit', function () {
+        $('ul').append('<li></li>').append('<li></li>');
+        const titleVal = $('#title').val()+' ';
+        const ratingVal = $('#rating').val()+' ';
+        const length = $('li').length;
+        $('li').eq(length-2).text(titleVal).append('<button>Remove</button>');
+        $('li').eq(length-1).text(ratingVal).append('<button>Remove</button>');
+        $('li button').on('click', function () {
+          $(this).parent().remove();
+        });
+      })
+    </script>
+  </body>
+</html>
